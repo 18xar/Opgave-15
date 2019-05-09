@@ -26,4 +26,4 @@ def paaBaren():
 Hun smiler, tager imod drinken og i begynder at snakke meget godt.
 Lidt tid går og hun kan rigtigt godt lide dig hun tager dig med hjem til hende.
 """)
-
+    return svar
