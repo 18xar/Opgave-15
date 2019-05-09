@@ -56,10 +56,10 @@ def popup(button):
                     count = 1
 
             # lav input om fra string til float
-            x1 = float(values[0])
-            x2 = float(secondValues[0])
-            y1 = float(values[1])
-            y2 = float(secondValues[1])
+            x1 = int(values[0])
+            x2 = int(secondValues[0])
+            y1 = int(values[1])
+            y2 = int(secondValues[1])
 
             # udregn og vis resultat
             resultat = Funktioner.findAfstand(x1, x2, y1, y2)
