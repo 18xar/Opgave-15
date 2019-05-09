@@ -122,5 +122,3 @@ def CosSinCalc(AB, AC, BC):
         print("Fuck af")
 
     return (A, B, C)
-
-CosSinCalc(10, 10, 10)
