@@ -1,34 +1,25 @@
 import math
 
-
 #alle funktioner
 def SinRelVinkel(side1, side2, vinkel1):
     return math.degrees(math.asin(math.sin((math.radians(vinkel1))/ side1 * side2)))
 
-
 def SinRelSide(vinkel1, vinkel2, side1):
     return (side1 / math.sin(math.radians(vinkel1))) * (math.sin(math.radians(vinkel2)))
 
-
-
 def CosRelSide(side1, side2, vinkel3):
- return math.sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * math.cos(math.radians(vinkel3)))
-
-
+    return math.sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * math.cos(math.radians(vinkel3)))
 
 def CosRelVinkel(side1, side2, side3):
     return math.degrees(math.acos((side2 * side2 + side3 * side3 - side1 * side1) / (2 * side2 * side3)))
 
-
-
 def Sum180(vinkel1, vinkel2):
     return 180 - vinkel1 - vinkel2
-
 
 def main():
     global havea, haveb, havec, haveA, haveB, haveC, a, b, c, A, B, C
 
-#alle if statements
+#all if statements
     try:
         a, b, c, A, B, C = input("skriv a b c A B C hvis du ikke har verdien skriv 0 \n her >").split()
         a = float(a)
