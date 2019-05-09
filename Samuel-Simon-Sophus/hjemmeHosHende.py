@@ -6,4 +6,4 @@ def hjemmeHosHende():
           "Tast 1 for at gå ud i køkkenet"
           "Tast 2 for at gå direkte til soveværelset"
           "Tast 3 for at gå på toilettet")
-    if hvadnu == 1
+    if hvadnu == 1:
