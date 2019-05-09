@@ -1,5 +1,4 @@
-
-def paaBaren():
+ def paaBaren():
     svar = input("""Hvad gør du?
 
     1) Går hen og spørger om hendes nummer.
@@ -26,4 +25,4 @@ def paaBaren():
 Hun smiler, tager imod drinken og i begynder at snakke meget godt.
 Lidt tid går og hun kan rigtigt godt lide dig hun tager dig med hjem til hende.
 """)
-
+    return svar

@@ -19,8 +19,8 @@ MidtPunkt = [
 
 TrekantBeregner = [
     [sg.Text("Udregn afstand mellem to punkter")],
-    [sg.Text("Punkt A"), sg.Text("Punkt B")],
-    [sg.InputText("0,0"), sg.InputText("0,0")],
+    [sg.Text("Punkt A"), sg.Text("Punkt B"), sg.Text("Punkt C")],
+    [sg.InputText("0,0"), sg.InputText("0,0"), sg.InputText("0,0")],
     [sg.RButton("Udregn")],
     [sg.Text("resultat:", key="resultat")]
 ]
@@ -45,14 +45,14 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
@@ -75,14 +75,14 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
@@ -92,7 +92,8 @@ def popup(button):
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = LMMFunktioner.MidPunktV(x1, x2, y1, y2)
+            resultat = LMMFunktioner.MidtPunktV(x1, x2, y1, y2)
+            resultat = LMMFunktioner.FindMidtPunkt(x1, x2, y1, y2)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
     if button == "Trekant":
@@ -104,14 +105,14 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
@@ -121,7 +122,7 @@ def popup(button):
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = LMMFunktioner.Trekanter(x1, x2, y1, y2)
+            resultat = LMMFunktioner.FindTrekant(x1, x2, y1, y2)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
 

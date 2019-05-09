@@ -6,22 +6,34 @@ import csv
 #    data = list(csv.reader(readFile))
 #print(data)
 
-fravær=[]
+#fravær=[]
 
 def ReadFromFile():
     with open('data.csv', newline='') as csvfile:
         data = [list(map(int, rec)) for rec in csv.reader(csvfile, delimiter=',')]
         print(data)
-
-        rows=0
-        for row in data:
-            fravær.append(data[rows][1])
-            rows = rows + 1
-
+        return data
 
 def SaveToFile(newData):
     with open('data.csv', 'a',newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(newData)
 
-SaveToFile([1,3,128])
+SaveToFile([2,3,128])
+
+data=ReadFromFile()
+
+
+fravær=[]
+uge=[]
+
+a=0
+for rows in data:
+
+    fravær.append(data[a][0])
+    uge.append(data[a][1])
+
+    a=a+1
+
+
+

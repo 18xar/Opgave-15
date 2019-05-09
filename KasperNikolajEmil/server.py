@@ -3,30 +3,31 @@ import socket
 
 class Server():
   def __init__(self):
+    slef.name = ""
     self.ip = socket.gethostbyname(socket.gethostname())
+    self.port = 80
+    self.bufferSize = 20
+
+    self.conn
+    self.addr
 
   def getIP(self):
     return self.ip
+  
+  def startServer(self, name):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind((self.ip, self.port))
+    s.listen(1)
+    self.conn, self.addr = s.accept()
 
+  def loopServer(self):
+    data = self.conn.recv(self.buffersize)
+    if not data: 
+      break
+    print("received data:", data)
+    self.conn.send(data)
 
-sv = Server()
+  def stopServer(self):
+    self.conn.close()
 
-print(sv.getIP())
-
-
-TCP_IP = '127.0.0.1'
-TCP_PORT = 5005
-BUFFER_SIZE = 20  # Normally 1024, but we want fast response
- 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((TCP_IP, TCP_PORT))
-s.listen(1)
- 
-conn, addr = s.accept()
-print('Connection address:', addr)
-while 1:
-  data = conn.recv(BUFFER_SIZE)
-  if not data: break
-  print "received data:", data
-  conn.send(data)  # echo
-conn.close()
+  def sendMessage(self,):
