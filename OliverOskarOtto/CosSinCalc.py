@@ -5,7 +5,7 @@ def CosSinCalc(AB, AC, BC):
     b = AC
     c = AB
     A = 0
-    B = 0
+    B = 01
     C = 0
 
     def SinVinkel(side1, side2, vinkel1):  # V2
