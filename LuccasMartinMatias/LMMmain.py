@@ -19,8 +19,8 @@ MidtPunkt = [
 
 TrekantBeregner = [
     [sg.Text("Udregn afstand mellem to punkter")],
-    [sg.Text("Punkt A"), sg.Text("Punkt B")],
-    [sg.InputText("0,0"), sg.InputText("0,0")],
+    [sg.Text("Punkt A"), sg.Text("Punkt B"), sg.Text("Punkt C")],
+    [sg.InputText("0,0"), sg.InputText("0,0"), sg.InputText("0,0")],
     [sg.RButton("Udregn")],
     [sg.Text("resultat:", key="resultat")]
 ]
@@ -52,13 +52,13 @@ def popup(button):
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
             x1 = float(values[0])
-            x2 = float(secondValues[0])
-            y1 = float(values[1])
+            x2 = float(values[1])
+            y1 = float(secondValues[0])
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
@@ -82,17 +82,17 @@ def popup(button):
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
             x1 = float(values[0])
-            x2 = float(secondValues[0])
-            y1 = float(values[1])
+            x2 = float(values[1])
+            y1 = float(secondValues[0])
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = LMMFunktioner.MidPunktV(x1, x2, y1, y2)
+            resultat = LMMFunktioner.FindMidtPunkt(x1, x2, y1, y2)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
     if button == "Trekant":
@@ -111,17 +111,20 @@ def popup(button):
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
             x1 = float(values[0])
-            x2 = float(secondValues[0])
-            y1 = float(values[1])
+            x2 = float(values[1])
+            x3 = float(values[2])
+            y1 = float(secondValues[0])
             y2 = float(secondValues[1])
+            y3 = float(secondValues[2])
+
 
             # udregn og vis resultat
-            resultat = LMMFunktioner.Trekanter(x1, x2, y1, y2)
+            resultat = LMMFunktioner.FindTrekant(x1, x2, x3, y1, y2, y3)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
 
