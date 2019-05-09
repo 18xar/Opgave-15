@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from LuccasMartinMatias import LMMFunktioner
 
 Afstand = [
     [sg.Text("Udregn afstand mellem to punkter")],
@@ -56,13 +57,13 @@ def popup(button):
                     count = 1
 
             # lav input om fra string til float
-            x1 = float(values[0])
-            x2 = float(secondValues[0])
-            y1 = float(values[1])
-            y2 = float(secondValues[1])
+            x1 = int(values[0])
+            x2 = int(secondValues[0])
+            y1 = int(values[1])
+            y2 = int(secondValues[1])
 
             # udregn og vis resultat
-            resultat = Funktioner.findAfstand(x1, x2, y1, y2)
+            resultat = LMMFunktioner.findAfstand(x1, x2, y1, y2)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
 
@@ -87,13 +88,13 @@ def popup(button):
                     count = 1
 
             # lav input om fra string til float
-            x1 = float(values[0])
+            x1 = int(values[0])
             x2 = float(secondValues[0])
             y1 = float(values[1])
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = Funktioner.MidPunktV(x1, x2, y1, y2)
+            resultat = LMMFunktioner.MidPunktV(x1, x2, y1, y2)
             print(resultat)
             window2.FindElement("resultat-kegle-stub").Update(str(resultat))
     if button == "Trekant":
@@ -123,7 +124,7 @@ def popup(button):
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = Funktioenr.Trekanter(x1, x2, y1, y2)
+            resultat = LMMFunktioenr.Trekanter(x1, x2, y1, y2)
             print(resultat)
             window2.FindElement("resultat-kugle").Update(str(resultat))
 
