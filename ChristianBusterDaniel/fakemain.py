@@ -6,17 +6,18 @@ import csv
 #    data = list(csv.reader(readFile))
 #print(data)
 
-fravær=[]
+#fravær=[]
 
 def ReadFromFile():
     with open('data.csv', newline='') as csvfile:
         data = [list(map(int, rec)) for rec in csv.reader(csvfile, delimiter=',')]
-        print(data)
+        return data
 
-        rows=0
-        for row in data:
-            fravær.append(data[rows][1])
-            rows = rows + 1
+        #print(data)
+        #rows=0
+        #for row in data:
+        #    fravær.append(data[rows][1])
+        #    rows = rows + 1
 
 
 def SaveToFile(newData):
