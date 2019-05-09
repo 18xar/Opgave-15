@@ -1,6 +1,6 @@
 # Historie(rne)
 import random
-from pickers import *
+from paa-baren
 
 
 def historie1():
