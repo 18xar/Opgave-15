@@ -16,6 +16,7 @@ def snowflake (x, y):
 
 
 
+
 arcade.open_window(60,60, "Snowflake")
 arcade.set_background_color((0, 0, 0))
 
