@@ -2,16 +2,9 @@
 
 import csv
 
-#with open('data.csv', 'r') as readFile:
-#    data = list(csv.reader(readFile))
-#print(data)
-
-#fravær=[]
-
 def ReadFromFile():
     with open('data.csv', newline='') as csvfile:
         data = [list(map(int, rec)) for rec in csv.reader(csvfile, delimiter=',')]
-        print(data)
         return data
 
 def SaveToFile(newData):
@@ -35,5 +28,17 @@ for rows in data:
 
     a=a+1
 
+while True:
+    print("")
+    print("Se fravær        1)")
+    print("Upload fravær    2)")
+    x=int(input(": "))
+
+    if (x==2):
+        print("hi")
+        uge=float(input("Uge: "))
+        fravær=float(input("Fravær: "))
+
+        SaveToFile([uge,fravær])
 
 
