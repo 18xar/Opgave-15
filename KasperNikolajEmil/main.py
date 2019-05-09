@@ -12,12 +12,15 @@ def window1Setup():
 
     window1 = sg.Window("Chat-opsætning").Layout(layout1)
 
-    while True:
-        button, values = window1.Read()
-        print("Dit navn/id er: " + str(values[0]))
-        if button == "Tilslut":
-            print("Den målrettede ip er: " + str(values[1]))
+    button, values = window1.Read()
+    name = str(values[0])
+    print("Dit navn/id er: " + name)
+    returnList = [name]
+    if button == "Tilslut":
+        ip = str(values[1])
+        returnList.append(ip)
+        print("Den målrettede ip er: " + ip)
+    return returnList
 
 
-if __name__ == "__main__":
-  window1Setup()
+print(window1Setup())
