@@ -45,8 +45,7 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                i = str(i)
-                i.replace(",", " ")
+                values[i].replace(",", " ")
                 tempList = i.split()
                 count = 0
                 for y in tempList:
@@ -57,10 +56,10 @@ def popup(button):
                     count = 1
 
             # lav input om fra string til float
-            x1 = int(values[0])
-            x2 = int(secondValues[0])
-            y1 = int(values[1])
-            y2 = int(secondValues[1])
+            x1 = float(values[0])
+            x2 = float(secondValues[0])
+            y1 = float(values[1])
+            y2 = float(secondValues[1])
 
             # udregn og vis resultat
             resultat = LMMFunktioner.findAfstand(x1, x2, y1, y2)
@@ -76,8 +75,7 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                i = str(i)
-                i.replace(",", " ")
+                values[i].replace(",", " ")
                 tempList = i.split()
                 count = 0
                 for y in tempList:
@@ -88,7 +86,7 @@ def popup(button):
                     count = 1
 
             # lav input om fra string til float
-            x1 = int(values[0])
+            x1 = float(values[0])
             x2 = float(secondValues[0])
             y1 = float(values[1])
             y2 = float(secondValues[1])
@@ -106,8 +104,7 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                i = str(i)
-                i.replace(",", " ")
+                values[i].replace(",", " ")
                 tempList = i.split()
                 count = 0
                 for y in tempList:
