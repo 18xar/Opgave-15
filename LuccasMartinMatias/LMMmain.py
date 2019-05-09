@@ -46,7 +46,7 @@ def popup(button):
             # Read input
             for i in range(0, len(values)):
                 values[i].replace(",", " ")
-                tempList = i.split()
+                tempList = values[i].split()
                 count = 0
                 for y in tempList:
                     if count == 0:
@@ -76,7 +76,7 @@ def popup(button):
             # Read input
             for i in range(0, len(values)):
                 values[i].replace(",", " ")
-                tempList = i.split()
+                tempList = values[i].split()
                 count = 0
                 for y in tempList:
                     if count == 0:
@@ -94,7 +94,7 @@ def popup(button):
             # udregn og vis resultat
             resultat = LMMFunktioner.MidPunktV(x1, x2, y1, y2)
             print(resultat)
-            window2.FindElement("resultat-kegle-stub").Update(str(resultat))
+            window2.FindElement("resultat").Update(str(resultat))
     if button == "Trekant":
         window2 = sg.Window("TrekantBeregner").Layout(TrekantBeregner)
         while True:
@@ -105,7 +105,7 @@ def popup(button):
             # Read input
             for i in range(0, len(values)):
                 values[i].replace(",", " ")
-                tempList = i.split()
+                tempList = values[i].split()
                 count = 0
                 for y in tempList:
                     if count == 0:
@@ -121,10 +121,9 @@ def popup(button):
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = LMMFunktioenr.Trekanter(x1, x2, y1, y2)
+            resultat = LMMFunktioner.Trekanter(x1, x2, y1, y2)
             print(resultat)
-            window2.FindElement("resultat-kugle").Update(str(resultat))
-
+            window2.FindElement("resultat").Update(str(resultat))
 
 while True:
     button, values = window.Read()
