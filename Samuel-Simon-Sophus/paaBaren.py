@@ -1,5 +1,4 @@
-
-def paaBaren():
+ def paaBaren():
     svar = input("""Hvad gør du?
 
     1) Går hen og spørger om hendes nummer.
