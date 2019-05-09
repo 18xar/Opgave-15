@@ -42,7 +42,7 @@ def popup(button):
             secondValues = []
             if event is None or event == "Exit":
                 break
-            # læs input
+            # Read input
             for i in range(0, len(values)):
                 i = str(i)
                 i.replace(",", " ")
@@ -73,7 +73,7 @@ def popup(button):
             secondValues = []
             if event is None or event == "Exit":
                 break
-            # læs input
+            # Read input
             for i in range(0, len(values)):
                 i = str(i)
                 i.replace(",", " ")
@@ -103,7 +103,7 @@ def popup(button):
             secondValues = []
             if event is None or event == "Exit":
                 break
-            # læs input
+            # Read input
             for i in range(0, len(values)):
                 i = str(i)
                 i.replace(",", " ")
