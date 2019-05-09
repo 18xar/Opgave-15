@@ -45,8 +45,8 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:
@@ -75,8 +75,8 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:
@@ -104,8 +104,8 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:

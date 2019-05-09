@@ -10,7 +10,7 @@ def FindMidtPunkt (x1,y1,x2,y2):
 def findAfstand (x1, y1, x2, y2):
     afstand = math.sqrt((x1+x2)*(x1+x2)+(y1+y2)*(y1+y2))
 
-    return afstand;
+    return afstand
 
 def AreaOfTriangleHeron(side1,side2,side3):
 
