@@ -9,6 +9,6 @@ layout = [[sg.Text("Point A:")],
     [sg.Submit()]
 ]
 
-done = sg.Window("Beregn punkter").Layout(layout)
+done = sg.Window("Put in coordinates").Layout(layout)
 button, values = done.Read()
 
