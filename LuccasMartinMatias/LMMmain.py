@@ -93,6 +93,7 @@ def popup(button):
 
             # udregn og vis resultat
             resultat = LMMFunktioner.MidtPunktV(x1, x2, y1, y2)
+            resultat = LMMFunktioner.FindMidtPunkt(x1, x2, y1, y2)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
     if button == "Trekant":
@@ -121,7 +122,7 @@ def popup(button):
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = LMMFunktioner.Trekanter(x1, x2, y1, y2)
+            resultat = LMMFunktioner.FindTrekant(x1, x2, y1, y2)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
 
