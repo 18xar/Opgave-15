@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 import PointsToDistance
-import CosSinCalc
+import CosAndSinCalculator
 
 layout = [[sg.Text("Point A:")],
     [sg.Text("x = "), sg.InputText(0), sg.Text("y = "), sg.InputText(0)],
@@ -25,5 +25,5 @@ AB, AC, BC = (PointsToDistance.PointsToDistance(Ax, Ay, Bx, By, Cx, Cy))
 print("Length AB is " + str(AB))
 print("Length AB is " + str(AC))
 print("Length AB is " + str(BC))
-
-CosSinCalc(AB, AC, BC)
+print("")
+CosAndSinCalculator.CosSinCalc(AB, AC, BC)
