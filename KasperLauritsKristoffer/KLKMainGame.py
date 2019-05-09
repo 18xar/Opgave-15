@@ -6,6 +6,7 @@ money = 50
 
 def GameWindow():
 
+    #Start på første layout side
     layout = [  [sg.Text("Money: " + str(money))],
                 [sg.Text("Choose Game:")],
                 [sg.RButton("Roulette")],
