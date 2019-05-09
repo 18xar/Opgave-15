@@ -45,14 +45,14 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
@@ -75,14 +75,14 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
@@ -104,14 +104,14 @@ def popup(button):
                 break
             # Read input
             for i in range(0, len(values)):
-                values[i].replace(",", " ")
-                tempList = values[i].split()
+                tempList = values[i].replace(",", " ")
+                tempList = tempList.split()
                 count = 0
                 for y in tempList:
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
