@@ -1,3 +1,5 @@
+import socket
+
 import PySimpleGUI as sg
 
 def main():
