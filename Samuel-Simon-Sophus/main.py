@@ -1,5 +1,8 @@
 # SCOR EN DAME SPIL
 import random
+import historier
 
 def spil():
-    print("")
+    historier.historie1()
+
+spil()
