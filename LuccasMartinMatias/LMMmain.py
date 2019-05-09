@@ -19,8 +19,8 @@ MidtPunkt = [
 
 TrekantBeregner = [
     [sg.Text("Udregn afstand mellem to punkter")],
-    [sg.Text("Punkt A"), sg.Text("Punkt B")],
-    [sg.InputText("0,0"), sg.InputText("0,0")],
+    [sg.Text("Punkt A"), sg.Text("Punkt B"), sg.Text("Punkt C")],
+    [sg.InputText("0,0"), sg.InputText("0,0"), sg.InputText("0,0")],
     [sg.RButton("Udregn")],
     [sg.Text("resultat:", key="resultat")]
 ]
