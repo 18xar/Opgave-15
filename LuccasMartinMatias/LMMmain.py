@@ -52,7 +52,7 @@ def popup(button):
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
@@ -82,7 +82,7 @@ def popup(button):
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
@@ -111,7 +111,7 @@ def popup(button):
                     if count == 0:
                         values[i] = y
                     elif count == 1:
-                        secondValues[i] = y
+                        secondValues.append(y)
                     count = 1
 
             # lav input om fra string til float
