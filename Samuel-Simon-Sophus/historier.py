@@ -1,15 +1,11 @@
 # Historie(rne)
 import random
-from paa-baren
+from paaBaren import *
 
 
 def historie1():
-    print("...")
-
-    svar = picker1()
-    if (svar == 1):
-        print("")
-
+    print("Du ser den mest sexede kvinde sidde ovre i kanten af baren. Det tager dig lidt tid men du samler modet og går hen til hende.")
+    paaBaren()
 
 def historie2():
     print("...")
