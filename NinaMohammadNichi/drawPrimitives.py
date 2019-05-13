@@ -31,11 +31,24 @@ def drawBox (h, l, b):
 # H4
     heightFourEndY = lenghtEndOneY + h
 
+# Højde tekst
+    if b >= 60:
+        arcade.draw_text("h =" + str(h), normX + 10, normY + h/2, (0, 0, 0))
+    else:
+        arcade.draw_text("h =" + str(h), normX + 10 + b, normY + h / 2, (0, 0, 0))
+# Længde tekst
+    arcade.draw_text("l =" + str(l), (normX + lenghtEndOneX) / 2 - l/10, (normY + lenghtEndOneY) / 2 - 23, (0, 0, 0), 12, 0, "left",
+                     ("calibri", "arial"), False, False, "left", "baseline", -30)
+# Bredde teskst
+    arcade.draw_text("b =" + str(b), (normX + widthEndOneX) / 2, (normY + widthEndOneY) / 2 - 10, (0, 0, 0), 12, 0, "left",
+                     ("calibri", "arial"), False, False, "left", "baseline", 30)
 
 # H3
-    arcade.draw_line(lenghtEndTwoX, lenghtEndTwoY, lenghtEndTwoX, heightThreeEndY, (100, 100, 100), 2)
+    arcade.draw_line(lenghtEndTwoX, lenghtEndTwoY, lenghtEndTwoX, heightThreeEndY, (150, 150, 150), 2)
 # L2
-    arcade.draw_line(widthEndOneX, widthEndOneY, lenghtEndTwoX, lenghtEndTwoY, (100, 100, 100), 2)
+    arcade.draw_line(widthEndOneX, widthEndOneY, lenghtEndTwoX, lenghtEndTwoY, (150, 150, 150), 2)
+# W3
+    arcade.draw_line(lenghtEndOneX, lenghtEndOneY, lenghtEndTwoX, lenghtEndTwoY, (150, 150, 150), 2)
 # W1
     arcade.draw_line(normX, normY, widthEndOneX, widthEndOneY, (0, 0, 0), 2)
 # L1
@@ -46,8 +59,6 @@ def drawBox (h, l, b):
     arcade.draw_line(normX, heightOneEndY, widthEndTwoX, widthEndTwoY, (0, 0, 0), 2)
 # H2
     arcade.draw_line(widthEndOneX, widthEndOneY, widthEndTwoX, widthEndTwoY, (0, 0, 0), 2)
-# W3
-    arcade.draw_line(lenghtEndOneX, lenghtEndOneY, lenghtEndTwoX, lenghtEndTwoY, (100, 100, 100), 2)
 # H4
     arcade.draw_line(lenghtEndOneX, lenghtEndOneY, lenghtEndOneX, heightFourEndY, (0, 0, 0), 2)
 # W4
@@ -57,9 +68,9 @@ def drawBox (h, l, b):
 # L4
     arcade.draw_line(widthEndOneX, widthEndTwoY, lenghtEndTwoX, heightThreeEndY, (0, 0, 0), 2)
 
-arcade.open_window(800, 600, "no")
+arcade.open_window(800, 600, "Visuel primitive")
 arcade.set_background_color((255, 255, 255))
 arcade.start_render()
-drawBox(40, 100, 100)
+drawBox(110, 50, 160)
 arcade.finish_render()
 arcade.run()
