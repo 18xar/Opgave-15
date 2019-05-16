@@ -3,7 +3,8 @@ import random
 import PySimpleGUI
 import Funtioner
 
-layout = [[PySimpleGUI.Text("Vælg hvilket figur du ville have"), PySimpleGUI.Text(":")], [PySimpleGUI.Button("Cirkel")], [PySimpleGUI.Button("Prisme")]
+layout = [[PySimpleGUI.Text("Vælg hvilket figur du ville have"), PySimpleGUI.Text(":")], [PySimpleGUI.Button("Cirkel"), PySimpleGUI.Button ("Suprise")],
+          [PySimpleGUI.Button("Prisme")]
 
 ]
 
@@ -40,3 +41,4 @@ if button == "Prisme":
     arcade.finish_render()
 
     arcade.run()
+
