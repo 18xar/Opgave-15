@@ -15,12 +15,11 @@ def hjemmeHosHende():
         print("Du gå ud til pigen på hendes soveværelse, dete r relativt lille men der er plads til to i sengen. "
               "Det er ikke specielt romantisk men i hygger jer og du overnatter.")
         sex = 1
-    if (hvadnu == "3"):
+    if (hvadnu == "3")
         lorteloesning = input("du går ud på toilettet fordi du skal skide, du sætter dig på kummen og laver en stor lort. "
               "Men du kan ikke skylle. Hvad gør du?"
                              "Tast 1 for at smide lorten ud af vinduet"
                              "Tast 2 for at lade lorten ligge og tørre dig og gå ind på soveværelset"
                              "Tast 3 for at prøve at fixe toilettet")
-        if(lorteloesning == "1"):
-            print("Du smed lorten ud af vinduet og vaskede hænder. Den perfekte løsning. "
-                  "Du må bare håbe ingen finder ud af det var dig" )
+        if(lorteloesning == "1")
+            print(Du smed lorten ud af vinduet og vaskede hænder. Det er der aldrig )
