@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import pointsDis
 import cosSinCalc
+import render
 
 layout = [[sg.Text("Point A:")],
     [sg.Text("x = "), sg.InputText(0), sg.Text("y = "), sg.InputText(0)],
@@ -8,7 +9,7 @@ layout = [[sg.Text("Point A:")],
     [sg.Text("x = "), sg.InputText(0), sg.Text("y = "), sg.InputText(0)],
     [sg.Text("Point C:")],
     [sg.Text("x = "), sg.InputText(0), sg.Text("y = "), sg.InputText(0)],
-    [sg.Submit()]
+    [sg.Submit(), sg.Exit()]
 ]
 
 done = sg.Window("Put in coordinates").Layout(layout)
@@ -27,6 +28,7 @@ print("Length AC is " + str(AC))
 print("Length BC is " + str(BC))
 print("")
 A, B, C = cosSinCalc.CosSinCalc(AB, AC, BC)
-print("Angle A is " + str(A))
-print("Angle B is " + str(B))
-print("Angle C is " + str(C))
+print("Angle A is " + str(A) + "°")
+print("Angle B is " + str(B) + "°")
+print("Angle C is " + str(C) + "°")
+render.TriangeRender(Ax, Ay, Bx, By, Cx, Cy)
