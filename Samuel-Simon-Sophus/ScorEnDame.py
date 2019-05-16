@@ -10,7 +10,10 @@ def spil():
     svar = paaBaren()
 
     if (svar == "3"):
-        hjemmeHosHende()
+        sex = hjemmeHosHende()
+
+        if (sex == "1"):
+            dagenEfter()
 
 
 spil()
