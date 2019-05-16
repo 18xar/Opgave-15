@@ -8,7 +8,8 @@ def hjemmeHosHende():
         2) for at gå direkte til soveværelset
         3) for at gå på toilettet
 
-          Dit valg: """)
+        Dit valg: """)
+
     if (hvadnu == "1"):
         print("Du valgte at gå ud i køkkenet, hvor du æder alt hendes mad og bliver smidt ud. Dårlig stil...")
 
@@ -17,18 +18,22 @@ def hjemmeHosHende():
 Det er ikke specielt romantisk men i hygger jer og du overnatter.
 """)
         sex = 1
+        return sex
 
     if (hvadnu == "3"):
-        lorteloesning = input(
-            """du går ud på toilettet fordi du skal skide, du sætter dig på kummen og laver en stor lort. Men du kan ikke skylle. Hvad gør du?
+        lorteloesning = input("""
+        Du går ud på toilettet fordi du skal skide, du sætter dig på kummen og laver en stor lort. Men du kan ikke skylle. Hvad gør du?
         1) for at smide lorten ud af vinduet
         2) for at lade lorten ligge og tørre dig og gå ind på soveværelset
-        3) for at prøve at fixe toilettet""")
+        3) for at prøve at fixe toilettet
+        
+        Dit valg: """)
 
         if (lorteloesning == "1"):
             print("""Du smed lorten ud af vinduet. Den perfekte løsning. 
-                  Du vasker dine hænder og går ind og får dit retmæssige fisse""")
+            Du vasker dine hænder og går ind og får dit retmæssige fisse""")
             sex = 1
+            return sex
 
         if (lorteloesning == "2"):
             print("""Du valgte at lade lorten ligge. Et valg som kune en kryster ville tage. 
