@@ -32,4 +32,4 @@ def FindTrekant(x1,y1,x2,y2,x3,y3):
 
     areal = AreaOfTriangleHeron(a, b, c)
 
-    return a, b, c, A, B, C, areal
+    return areal
