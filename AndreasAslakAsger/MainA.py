@@ -21,7 +21,20 @@ if valg1 == 1:
         R = float(input("Indtast resistansen"))
         print(FuncOhmsLov.OhmSpaendingsforskel(U, R))
 if valg1 == 2:
-    R =
-    L =
-    A =
-    FuncResistivitet.Resistivitet(R, L, A)
+    R = float(input("Indtast resistansen"))
+    L = float(input("Indtast længden"))
+    A = float(input("Indtast tværsnitsarealet"))
+    print(FuncResistivitet.Resistivitet(R, L, A))
+if valg1 == 3:
+    m = float(input("Indtast massen"))
+    a = float(input("Indtast accelerationen"))
+    print(FuncNewton.Newtons2Lov(m, a))
+if valg1 == 4:
+    valg2 = int(input("1: Strømstyrke    2: Spændingsforskel"))
+
+    if valg2 == 1:
+        Ieff = float(input("Indtast effektivstrømstyrken"))
+        print(FuncMaximal.Strømstyrke(Ieff))
+    if valg2 == 2:
+        Ueff = float(input("Indtast effektivspændingen"))
+        print(FuncMaximal.Spændingsforskel(Ueff))
