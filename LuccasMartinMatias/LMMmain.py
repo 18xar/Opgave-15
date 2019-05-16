@@ -141,7 +141,8 @@ def popup(button):
                 window2.FindElement("B").Update(str(resultat[4]))
                 window2.FindElement("C").Update(str(resultat[5]))
                 window2.FindElement("areal").Update(str(resultat[6]))
-                button, values = window.Read()
+
+                button, values = window2.Read()
                 if button == "Tegn trekant":
                     LMMFunktioner.TegnTrekant(x1, y1, x2, y2, x3, y3)
 
