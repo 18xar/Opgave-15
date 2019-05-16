@@ -3,6 +3,20 @@
 import csv,PySimpleGUI as sg, math
 
 
+def FraværGennemsnit (uge, fravær):
+    #Hej123
+    antaluge = len(uge)
+    fraværialt = sum(fravær)
+    gennemsnit = fraværialt/antaluge
+
+    return(gennemsnit)
+
+def mistetLøn(værdier, timeløn):
+
+    mistetløn = værdier*timeløn
+
+    return(mistetløn)
+
 def graf(fravær,uger):
     graph.DrawLine((-100,-100), (100,-100))
     graph.DrawLine((-100,-100), (-100,100))
@@ -76,21 +90,28 @@ while True:
 
             a = a + 1
 
+        mistetløn=mistetLøn(a,200)
+        gennemsnit=FraværGennemsnit(uge,fravær)
+
 
         window.Close()
 
-        layout = [[sg.Text("Alt fravær: "+str(int(samletFravær))+" sekunder")]]
-
+        layout = [[sg.Text("Nedim er kommet forsent "+str(int(a))+" gange")],
+                  [sg.Text("Samlet fravær: "+str(int(samletFravær))+" sekunder")],
+                  [sg.Text("Mistet løn: "+str(int(mistetløn))+" kr")],
+                  [sg.Text("Gennemsnitlig fravær per uge: "+str(int(gennemsnit))+" sekunder")]]
         grafLayout = [[sg.Graph(canvas_size=(400, 400), graph_bottom_left=(-105,-105), graph_top_right=(105,105), background_color='white', key='graph')]]
-
-        layout = layout + grafLayout
-        #window = sg.Window('Fravær', grab_anywhere=True)
+        backLayout= [[sg.Button("Back")]]
+        layout = layout + grafLayout + backLayout
         window = sg.Window('Fravær', grab_anywhere=True).Layout(layout).Finalize()
         graph = window.FindElement('graph')
         graf(fravær,uge)
 
 
         event, values = window.Layout(layout).Read()
+
+        if (event=="Back"):
+            window.Close()
 
     if (event=="Exit"):
         exit()
