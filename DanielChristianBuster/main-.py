@@ -1,6 +1,26 @@
 #Vores fake main fil 1
 
-import csv,PySimpleGUI as sg
+import csv,PySimpleGUI as sg, math
+
+
+def graf(fravær,uger):
+    graph.DrawLine((-100,-100), (100,-100))
+    graph.DrawLine((-100,-100), (-100,100))
+
+    for x in range(-100, 101, 20):
+        graph.DrawLine((x,-103), (x,-97))
+
+    for y in range(-100, 101, 20):
+        graph.DrawLine((-103,y), (-97,y))
+
+    for i in range(0,200,20):
+        if y != 0:
+            graph.DrawText( i, (-100,i+10-100), color='blue')
+            graph.DrawText(int(i/20+1), (i + 10 - 100,-100 ), color='blue')
+
+    for i in range(0,len(uger)):
+        graph.DrawCircle((i*5-100+20, fravær[i]-100), 2, line_color='red', fill_color='red')
+
 
 def ReadFromFile():
     with open('data.csv', newline='') as csvfile:
@@ -58,8 +78,18 @@ while True:
 
 
         window.Close()
+
         layout = [[sg.Text("Alt fravær: "+str(int(samletFravær))+" sekunder")]]
-        window = sg.Window('Fravær')
+
+        grafLayout = [[sg.Graph(canvas_size=(400, 400), graph_bottom_left=(-105,-105), graph_top_right=(105,105), background_color='white', key='graph')]]
+
+        layout = layout + grafLayout
+        #window = sg.Window('Fravær', grab_anywhere=True)
+        window = sg.Window('Fravær', grab_anywhere=True).Layout(layout).Finalize()
+        graph = window.FindElement('graph')
+        graf(fravær,uge)
+
+
         event, values = window.Layout(layout).Read()
 
     if (event=="Exit"):

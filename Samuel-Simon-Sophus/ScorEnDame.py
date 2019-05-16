@@ -12,7 +12,7 @@ def spil():
     if (svar == "3"):
         sex = hjemmeHosHende()
 
-        if (sex == "1"):
+        if (sex == 1):
             dagenEfter()
 
 
