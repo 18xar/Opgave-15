@@ -22,7 +22,7 @@ TrekantBeregner = [
     [sg.Text("Punkt A"), sg.Text("Punkt B"), sg.Text("Punkt C")],
     [sg.InputText("0,0"), sg.InputText("0,0"), sg.InputText("0,0")],
     [sg.RButton("Udregn")],
-    [sg.Text("Areal:", key="areal")],
+    [sg.Text("Areal:"), sg.Text("0", key="areal")],
     [sg.Text("a:"), sg.Text("0", key="a")],
     [sg.Text("b:"), sg.Text("0", key="b")],
     [sg.Text("c:"), sg.Text("0", key="c")],
