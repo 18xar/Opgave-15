@@ -14,9 +14,9 @@ def hjemmeHosHende():
 
     if (hvadnu == "2"):
         print("""Du går ud til pigen på hendes soveværelse, det er relativt lille men der er plads til to i sengen. 
-        Det er ikke specielt romantisk men i hygger jer og du overnatter.
-        """)
-        sex = 2
+Det er ikke specielt romantisk men i hygger jer og du overnatter.
+""")
+        sex = 1
 
     if (hvadnu == "3"):
         lorteloesning = input(
