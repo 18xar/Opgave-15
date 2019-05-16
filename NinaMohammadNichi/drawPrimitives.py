@@ -71,6 +71,6 @@ def drawBox (h, l, b):
 arcade.open_window(800, 600, "Visuel primitive")
 arcade.set_background_color((255, 255, 255))
 arcade.start_render()
-drawBox(110, 50, 160)
+drawBox(110, 210, 160)
 arcade.finish_render()
 arcade.run()
