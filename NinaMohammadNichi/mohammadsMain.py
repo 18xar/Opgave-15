@@ -1,19 +1,21 @@
+#import arcade
 from tkinter import *
+from NinaMohammadNichi import drawPrimitives as dp
 
 # theLabel = Label(root,text="Første vindue")
 #theLabel.pack()
 
+height = 100.0
+length = 100.0
+width = 100.0
+def plzWork ():
+    print("Plz?")
 root = Tk()
-
-topFrame = Frame(root)
-topFrame.pack()
 
 bottomFrame = Frame(root)
 bottomFrame.pack(side=BOTTOM)
 
-button1 = Button(topFrame,text="Button 1", fg="red")
-button1.pack(side=LEFT)
-
+button1 = Button(root, text="Button 1", command=lambda: dp.drawBox(height, length, width))
+button1.pack()
 
 root.mainloop()
-

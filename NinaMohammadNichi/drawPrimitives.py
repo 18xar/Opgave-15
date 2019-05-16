@@ -1,8 +1,8 @@
 import arcade
 import math
-screenW = 800
-screenH = 600
 def drawBox (h, l, b):
+    screenW = 800
+    screenH = 600
     normX = screenW/2
     normY = screenH / 8
 
@@ -30,6 +30,10 @@ def drawBox (h, l, b):
     heightThreeEndY = lenghtEndTwoY + h
 # H4
     heightFourEndY = lenghtEndOneY + h
+
+    arcade.open_window(800, 600, "Visuel primitive")
+    arcade.set_background_color((255, 255, 255))
+    arcade.start_render()
 
 # Højde tekst
     if b >= 60:
@@ -67,10 +71,15 @@ def drawBox (h, l, b):
     arcade.draw_line(normX, heightOneEndY, lenghtEndOneX, heightFourEndY, (0, 0, 0), 2)
 # L4
     arcade.draw_line(widthEndOneX, widthEndTwoY, lenghtEndTwoX, heightThreeEndY, (0, 0, 0), 2)
+    arcade.finish_render()
+    arcade.run()
 
+#drawBox(110, 210, 100)
+
+'''
 arcade.open_window(800, 600, "Visuel primitive")
 arcade.set_background_color((255, 255, 255))
 arcade.start_render()
-drawBox(110, 210, 150)
+#drawBox(110, 210, 150)
 arcade.finish_render()
-arcade.run()
+arcade.run()'''

@@ -1,4 +1,4 @@
-import math
+import math, arcade
 
 def FindMidtPunkt (x1,y1,x2,y2):
 
@@ -8,8 +8,7 @@ def FindMidtPunkt (x1,y1,x2,y2):
     return x,y
 
 def findAfstand (x1, y1, x2, y2):
-    afstand = math.sqrt((x1+x2)*(x1+x2)+(y1+y2)*(y1+y2))
-
+    afstand = math.sqrt((x1 - x2)*(x1 - x2)+(y1 - y2)*(y1 - y2))
     return afstand
 
 def AreaOfTriangleHeron(side1,side2,side3):
@@ -33,4 +32,51 @@ def FindTrekant(x1,y1,x2,y2,x3,y3):
 
     areal = AreaOfTriangleHeron(a, b, c)
 
-    return areal
+    result = [a, b, c, A, B, C, areal]
+
+    return result
+
+def TegnTrekant(x1, y1, x2, y2, x3, y3):
+    længde1 = findAfstand(x1, y1, x2, y2)
+    længde2 = findAfstand(x2, y2, x3, y3)
+    længde3 = findAfstand(x1, y1, x3, y3)
+    længder = [længde1, længde2, længde3]
+    maxLængde = max(længder)
+    multiplier = 1
+    plus = 2
+    farve = (0, 0 ,0)
+
+    arcade.open_window(600, 600, "TegnTrekant")
+    arcade.set_background_color((255, 255, 255))
+
+    arcade.start_render()
+
+    if maxLængde < 10:
+        multiplier = 100
+
+    elif maxLængde < 33:
+        multiplier = 18
+
+    elif maxLængde < 66:
+        multiplier = 9
+
+    elif maxLængde < 200:
+        multiplier = 5.5
+
+    elif maxLængde < 500:
+        maxLængde = 3
+
+    elif maxLængde < 600:
+        multiplier = 0.8
+
+    elif maxLængde > 600:
+        exit()
+
+
+    arcade.draw_line((x1 * multiplier) + plus, (y1 * multiplier) + plus, (x2 * multiplier) + plus, (y2 * multiplier) + plus, farve)
+    arcade.draw_line((x2 * multiplier) + plus, (y2 * multiplier) + plus, (x3 * multiplier) + plus, (y3 * multiplier) + plus, farve)
+    arcade.draw_line((x1 * multiplier) + plus, (y1 * multiplier) + plus, (x3 * multiplier) + plus, (y3 * multiplier) + plus, farve)
+
+    arcade.finish_render()
+
+    arcade.run()

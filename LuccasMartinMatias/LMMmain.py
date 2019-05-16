@@ -22,7 +22,14 @@ TrekantBeregner = [
     [sg.Text("Punkt A"), sg.Text("Punkt B"), sg.Text("Punkt C")],
     [sg.InputText("0,0"), sg.InputText("0,0"), sg.InputText("0,0")],
     [sg.RButton("Udregn")],
-    [sg.Text("Areal:", key="areal")]
+    [sg.Text("Areal:"), sg.Text("0", key="areal")],
+    [sg.Text("a:"), sg.Text("0", key="a")],
+    [sg.Text("b:"), sg.Text("0", key="b")],
+    [sg.Text("c:"), sg.Text("0", key="c")],
+    [sg.Text("A:"), sg.Text("0", key="A")],
+    [sg.Text("B:"), sg.Text("0", key="B")],
+    [sg.Text("C:"), sg.Text("0", key="C")],
+    [sg.RButton("Tegn trekant")]
 ]
 
 layout = [
@@ -126,7 +133,19 @@ def popup(button):
             # udregn og vis resultat
             resultat = LMMFunktioner.FindTrekant(x1, y1, x2, y2, x3, y3)
             print(resultat)
-            window2.FindElement("resultat").Update(str(resultat))
+            window2.FindElement("a").Update(str(resultat[0]))
+            window2.FindElement("b").Update(str(resultat[1]))
+            window2.FindElement("c").Update(str(resultat[2]))
+            window2.FindElement("A").Update(str(resultat[3]))
+            window2.FindElement("B").Update(str(resultat[4]))
+            window2.FindElement("C").Update(str(resultat[5]))
+            window2.FindElement("areal").Update(str(resultat[6]))
+            button, values = window.Read()
+            if button == "Tegn trekant":
+                LMMFunktioner.TegnTrekant(x1, y1, x2, y2, x3, y3)
+
+
+
 
 while True:
     button, values = window.Read()
