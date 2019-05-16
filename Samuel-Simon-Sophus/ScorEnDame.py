@@ -12,13 +12,9 @@ def spil():
 
     if (svar == "3"):
         sex = hjemmeHosHende()
-    else:
-        print("Tak fordi du spillede.")
 
         if (sex == 1):
             dagenEfter()
-        else:
-            print("Tak fordi du spillede.")
 
 
 spil()
