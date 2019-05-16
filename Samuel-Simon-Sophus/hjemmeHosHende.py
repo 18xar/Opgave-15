@@ -33,3 +33,4 @@ def hjemmeHosHende():
             print("""Du prøver at fikse toilettet, du har jo fikset ting før.
             Desværre er det her et ret kompliceret problem og du ender dækket i lortevand 
             Du siger hvad der er sket og du bliver smidt ud og får sendt en regning på 2000kr. dagen efter.""")
+    return sex
