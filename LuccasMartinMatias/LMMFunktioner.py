@@ -1,4 +1,4 @@
-import math
+import math, arcade
 
 def FindMidtPunkt (x1,y1,x2,y2):
 
@@ -35,3 +35,37 @@ def FindTrekant(x1,y1,x2,y2,x3,y3):
     result = [a, b, c, A, B, C, areal]
 
     return result
+
+def TegnTrekant(x1, y1, x2, y2, x3, y3):
+    længde1 = findAfstand(x1, y1, x2, y2)
+    længde2 = findAfstand(x2, y2, x3, y3)
+    længde3 = findAfstand(x1, y1, x3, y3)
+    længder = [længde1, længde2, længde3]
+    maxLængde = max(længder)
+
+    arcade.open_window(600, 600, "TegnTrekant")
+    arcade.set_background_color((255, 255, 255))
+
+    arcade.start_render()
+
+    if maxLængde < 10:
+        multiplier = 100
+        farve = (0, 0, 0)
+        plus = 2
+
+        arcade.draw_line((x1 * multiplier) + plus, (y1 * multiplier) + plus, (x2 * multiplier) + plus, (y2 * multiplier) + plus, farve)
+        arcade.draw_line((x2 * multiplier) + plus, (y2 * multiplier) + plus, (x3 * multiplier) + plus, (y3 * multiplier) + plus, farve)
+        arcade.draw_line((x1 * multiplier) + plus, (y1 * multiplier) + plus, (x3 * multiplier) + plus, (y3 * multiplier) + plus, farve)
+
+    if maxLængde >= 10:
+        multiplier = 18
+        farve = (0, 0, 0)
+        plus = 2
+
+        arcade.draw_line((x1 * multiplier) + plus, (y1 * multiplier) + plus, (x2 * multiplier) + plus, (y2 * multiplier) + plus, farve)
+        arcade.draw_line((x2 * multiplier) + plus, (y2 * multiplier) + plus, (x3 * multiplier) + plus, (y3 * multiplier) + plus, farve)
+        arcade.draw_line((x1 * multiplier) + plus, (y1 * multiplier) + plus, (x3 * multiplier) + plus, (y3 * multiplier) + plus, farve)
+
+    arcade.finish_render()
+
+    arcade.run()
