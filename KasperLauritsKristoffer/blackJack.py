@@ -60,11 +60,15 @@ def Blackjack():
             typeText = "klør"
 
         print(typeText + " " + numberText)
+        res = typeText + " " + numberText + " "
+        return res
 
 
     def PlaceAll(person):
+        res = ""
         for X in range(len(person)):
-            PlaceCard(person[X])
+            res += PlaceCard(person[X])
+        return res
 
     def PlaceInformation():
         print("Dealer:")
@@ -75,8 +79,7 @@ def Blackjack():
         PlaceAll(player)
         #print("sum: " + str(playerSum))
         print()
-        res = "Dealer: \n ", PlaceCard(dealer[0]), "\n \n Spiller: \n", PlaceAll(player), "\n"
-        return res
+        return "Dealer: ", str(PlaceCard(dealer[0])), "Spiller: ", str(PlaceAll(player))
 
     def PlaceInformation2():
         print("Dealer:")
@@ -114,7 +117,7 @@ def Blackjack():
     if dealer[1][1] == 1:
         dealerEs += 1
 
-    pin = PlaceInformation()
+    pin1, pin2, pin3, pin4 = PlaceInformation()
 
     if player[0][1] > 10 and player[1][1] == 1 or player[1][1] > 10 and player[0][1] == 1:
         loose = "Blackjack"
@@ -123,24 +126,28 @@ def Blackjack():
 
     HitHold = 0
 
-    layout = [
-        [sg.Text(pin, size=(15, 6))]
-    ]
-
-    window = sg.FlexForm('BlackJack', layout)
-
-    buttons, values = window.Read()
-
-    window.Close()
-
 
     if loose == "i do not know... yet":
-        while playerHold == False:
-            HitHold = input("1 Hit, 2 Hold:")
+        layout = [
+            [sg.Text(pin1, size=(50, 1))],
+            [sg.Text(pin2, size=(50, 1))],
+            [sg.Text(pin3, size=(50, 1))],
+            [sg.Text(pin4, size=(50, 1))],
+            [sg.Text("", size=(50, 1))],
+            [sg.Button("Hit"), sg.Button("Hold")]
+        ]
 
-            if buttons[0]:
+        window = sg.FlexForm('BlackJack', layout)
+
+        buttons, values = window.Read()
+
+        window.Close()
+        while playerHold == False:
+            #HitHold = input("1 Hit, 2 Hold:")
+
+            if buttons == "Hit":
                 HitHold = "1"
-            elif buttons[1]:
+            elif buttons == "Hold":
                 HitHold = "2"
 
             if HitHold == "1":
@@ -148,7 +155,18 @@ def Blackjack():
                     playerSum += player[len(player) - 1][2]
                     if player[len(player) - 1][1] == 1:
                         playerEs += 1
-                    pin = PlaceInformation()
+                    pin1, pin2, pin3, pin4 = PlaceInformation()
+                    layout = [
+                        [sg.Text(pin1, size=(50, 1))],
+                        [sg.Text(pin2, size=(50, 1))],
+                        [sg.Text(pin3, size=(50, 1))],
+                        [sg.Text(pin4, size=(50, 1))],
+                        [sg.Text("", size=(50, 1))],
+                        [sg.Button("Hit"), sg.Button("Hold")]
+                    ]
+                    window = sg.FlexForm('BlackJack', layout)
+                    buttons, values = window.Read()
+                    window.Close()
 
             if HitHold == "2":
                 playerHold = True
@@ -215,4 +233,3 @@ def Blackjack():
         print("BLACKJACK!! :O")
         return 3
 
-Blackjack()
