@@ -43,6 +43,7 @@ def ChatWindow():
 
     return window
 
+
 def sendMessage(event, input, window, name, button):
     if event == "Send":
         message = "{}: {} \n".format(name, input[0])
@@ -66,5 +67,14 @@ while True:
     server.loopServer()
     if event is None or event == "Exit":
         break
-
-    sendMessage(event, values, chatWindow, returnList[1], returnList[0])
+    if event == "Chat":
+        sendMessage(event, values, chatWindow, returnList[1], returnList[0])
+    if event == "Refresh":
+        if returnList[0] == "Tilslut":
+            # Refresh (få beskeder fra server og put dem ind i chatlist og opdater ui)
+            chatList.append(client.receiveMessage())
+        elif returnList[0] == "Host":
+            chatList.append(server.receiveMessage)
+        
+        # Opdater UI
+        chatWindow.FindElement("__CHAT__").Update("".join(chatList))
