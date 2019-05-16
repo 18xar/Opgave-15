@@ -15,15 +15,6 @@ def SaveToFile(newData):
 
 data=ReadFromFile()
 
-fravær=[]
-uge=[]
-
-a=0
-for rows in data:
-    fravær.append(data[a][0])
-    uge.append(data[a][1])
-    a=a+1
-
 while True:
     layout = [[sg.Text('Hvad vil du?')],
               [sg.Button("Nyt fravær"), sg.Button("Se fravær"),sg.Button('Exit')]]
@@ -34,41 +25,43 @@ while True:
         window.Close()
         layout = [[sg.Text('Uge'), sg.InputText()],
                   [sg.Text('Dato'), sg.InputText()],
+                  [sg.Text('Time'), sg.InputText()],
                   [sg.Text('Fravær'), sg.InputText()],
-                  [sg.Button("Upload")]]
+                  [sg.Button("Upload"),sg.Button("Back")]]
         window = sg.Window('Fravær')
         event, values = window.Layout(layout).Read()
 
-        for i in range(len(values)):
-            values[i]=float(values[i])
+        if (event!="Back"):
+            for i in range(len(values)):
+                values[i]=float(values[i])
 
-        SaveToFile(values)
-        data=ReadFromFile()
+            SaveToFile(values)
+            data=ReadFromFile()
         window.Close()
 
     if (event=="Se fravær"):
+
+        fravær = []
+        uge = []
+
+        samletFravær=0
+
+        a = 0
+        for rows in data:
+            print(rows)
+            fravær.append(data[a][0])
+            uge.append(data[a][1])
+
+            samletFravær=samletFravær+fravær[a]
+
+            a = a + 1
+
+
         window.Close()
+        layout = [[sg.Text("Alt fravær: "+str(int(samletFravær))+" sekunder")]]
+        window = sg.Window('Fravær')
+        event, values = window.Layout(layout).Read()
 
     if (event=="Exit"):
         exit()
-
-        print(data)
-
-
-
-
-
-
-
-    #print("")
-    #print("Se fravær        1)")
-    #print("Upload fravær    2)")
-    #x=int(input(": "))
-
-    #if (x==2):
-    #    a=int(input("Uge: "))
-    #    b=int(input("Fravær: "))
-
-       # SaveToFile([a,b])
-
 
