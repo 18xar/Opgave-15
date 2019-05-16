@@ -1,14 +1,19 @@
 import PySimpleGUI as sg
+from roulette import rulette
+
 
 
 def GameWindow():
-    money = 50
+    money = 200
 
     layout = [[sg.Text("Money: "), sg.Text(money, key="money")],
               [sg.Text("Roulette")],
               [sg.Text("Bet amount: "), sg.Input(key="rouletteBetAmount", size=(5, 1))],
               [sg.Text("Position: "), sg.Input(key="roulettePosition", size=(5, 1))],
               [sg.Button("Roulette")],
+              [sg.Text("Blackjack")],
+              [sg.Text("Bet amount: "), sg.Input(key="blackjackBetAmount", size(5,1))],
+              [sg.Button("Blackjack")],
               [sg.Button("Exit")]
               ]
 
@@ -16,7 +21,6 @@ def GameWindow():
 
     while True:
         event, values = window.Read()
-        print(event, values)
         window.Element("money").Update(money)
 
         if event is None or event == "Exit":
@@ -30,8 +34,17 @@ def GameWindow():
 
             try:
                 roulettePosition = int(values["roulettePosition"])
+                print(roulettePosition)
             except ValueError:
                 roulettePosition = values["roulettePosition"]
+                print(roulettePosition)
+
+            profit, roll = rulette(int(values["rouletteBetAmount"]), roulettePosition)
+            window.Element("money").Update(money)
+            sg.Popup("Roll: ", roll[0], roll[1], "Profit: ", profit )
+
+
+
 
     window.Close()
 
