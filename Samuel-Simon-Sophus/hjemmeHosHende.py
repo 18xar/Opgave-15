@@ -18,7 +18,6 @@ def hjemmeHosHende():
 Det er ikke specielt romantisk men i hygger jer og du overnatter.
 """)
         sex = 1
-        return sex
 
     if (hvadnu == "3"):
         lorteloesning = input("""
