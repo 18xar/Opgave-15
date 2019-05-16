@@ -28,7 +28,8 @@ TrekantBeregner = [
     [sg.Text("c:"), sg.Text("0", key="c")],
     [sg.Text("A:"), sg.Text("0", key="A")],
     [sg.Text("B:"), sg.Text("0", key="B")],
-    [sg.Text("C:"), sg.Text("0", key="C")]
+    [sg.Text("C:"), sg.Text("0", key="C")],
+    [sg.RButton("Tegn trekant")]
 ]
 
 layout = [
@@ -139,6 +140,10 @@ def popup(button):
             window2.FindElement("B").Update(str(resultat[4]))
             window2.FindElement("C").Update(str(resultat[5]))
             window2.FindElement("areal").Update(str(resultat[6]))
+            button, values = window.Read()
+            if button == "Tegn trekant":
+                LMMFunktioner.TegnTrekant(x1, y1, x2, y2, x3, y3)
+
 
 
 
