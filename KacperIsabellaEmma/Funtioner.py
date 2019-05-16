@@ -1,4 +1,3 @@
-import arcade
 import random
 import arcade
 
@@ -13,6 +12,7 @@ def CirkelP():
     radius = random.randint(19, 200)
 
     arcade.draw_circle_filled(x, y, radius, (r , g, b))
+
 
 def PrismeP():
 
