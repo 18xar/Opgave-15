@@ -1,179 +1,124 @@
 import math
 
 def CosSinCalc(AB, AC, BC):
+    a = BC
+    b = AC
+    c = AB
+    A = 0
+    B = 0
+    C = 0
 
-    #alle funktioner
-    def SinRelVinkel(side1, side2, vinkel1):
-        return math.degrees(math.asin(math.sin((math.radians(vinkel1))/ side1 * side2)))
+    def SinVinkel(side1, side2, vinkel1):  # V2
+        return math.degrees(math.asin(math.sin(math.radians(vinkel1)) / side1 * side2))
 
-    def SinRelSide(vinkel1, vinkel2, side1):
-        return (side1 / math.sin(math.radians(vinkel1))) * (math.sin(math.radians(vinkel2)))
+    def SinSide(side1, vinkel1, vinkel2):  # S2
+        return side1 / math.sin(math.radians(vinkel1)) * math.sin(math.radians(vinkel2))
 
-    def CosRelSide(side1, side2, vinkel3):
-        return math.sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * math.cos(math.radians(vinkel3)))
-
-    def CosRelVinkel(side1, side2, side3):
+    def CosVinkel(side1, side2, side3):  # V1
         return math.degrees(math.acos((side2 * side2 + side3 * side3 - side1 * side1) / (2 * side2 * side3)))
 
-    def Sum180(vinkel1, vinkel2):
+    def CosSide(side1, side2, vinkel3):  # S3
+        return math.sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * math.cos(math.radians(vinkel3)))
+
+    def One80Vinkel(vinkel1, vinkel2):  # V3
         return 180 - vinkel1 - vinkel2
 
-    def main():
-        global havea, haveb, havec, haveA, haveB, haveC, a, b, c, A, B, C
+    if A == 0 and B == 0 and C == 0:  # 1 (Start 1. kolonne)
+        A = CosVinkel(a, b, c)
+        B = CosVinkel(b, c, a)
+        C = CosVinkel(c, a, b)
 
-    #all if statements
-        try:
-            a = BC
-            b = AC
-            c = 0
-            A = 0
-            B = 0
-            C = 90
-            havea = False
-            haveb = False
-            havec = True
-            haveA = True
-            haveB = True
-            haveC = True
+    elif c == 0 and B == 0 and C == 0:  # 2
+        B = SinVinkel(a, b, A)
+        C = One80Vinkel(B, A)
+        c = SinSide(a, A, C)
 
-            if havea and haveb and havec:
-                A = CosRelVinkel(a, b, c)
-                B = CosRelVinkel(b, a, c)
-                C = CosRelVinkel(c, b, a)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif c == 0 and A == 0 and C == 0:  # 3
+        A = SinVinkel(b, a, B)
+        C = One80Vinkel(A, B)
+        c = SinSide(a, A, C)
 
-            elif havea and haveb and haveA:
-                B = SinRelVinkel(a, b, A)
-                C = Sum180(A,B)
-                c = SinRelSide(A, C, a)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif c == 0 and A == 0 and B == 0:  # 4
+        c = CosSide(a, b, C)
+        A = CosVinkel(a, b, c)
+        B = One80Vinkel(A, C)
 
-            elif havea and haveb and haveB:
-                A = SinRelVinkel(b, a, B)
-                C = Sum180(A, B)
-                c = SinRelSide(A, C, a)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and B == 0 and C == 0:  # 5
+        a = CosSide(b, c, A)
+        B = CosVinkel(b, c, a)
+        C = One80Vinkel(A, B)
 
-            elif havea and haveb and haveC:
-                c = CosRelSide(C, a, b)
-                B = SinRelVinkel(c, b, C)
-                A = Sum180(B, C)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and A == 0 and C == 0:  # 6
+        C = SinVinkel(b, c, B)
+        A = One80Vinkel(B, C)
+        a = SinSide(b, B, A)
 
-            elif havec and haveb and haveA:
-                a = CosRelSide(A, b, c)
-                B = SinRelVinkel(a, b, A)
-                C = Sum180(A, B)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and A == 0 and C == 0:  # 7
+        B = SinVinkel(c, b, C)
+        A = One80Vinkel(B, C)
+        a = SinSide(b, B, A)
 
-            elif havec and haveb and haveB:
-                C = SinRelVinkel(b, c, B)
-                A = Sum180(B, C)
-                a = SinRelSide(B, A, b)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif b == 0 and B == 0 and C == 0:  # 8
+        C = SinVinkel(a, c, A)
+        B = One80Vinkel(A, C)
+        b = SinSide(a, A, B)
 
-            elif havec and haveb and haveC:
-                B = SinRelVinkel(c, b, C)
-                A = Sum180(B, C)
-                a = SinRelSide(B, A, b)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif b == 0 and A == 0 and C == 0:  # 9
+        b = CosSide(a, c, B)
+        A = CosVinkel(a, b, c)
+        C = One80Vinkel(A, B)
 
-            elif havec and havea and haveA:
-                C = SinRelVinkel(a, c, A)
-                B = Sum180(A, C)
-                b = SinRelSide(A, B, a)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif b == 0 and A == 0 and B == 0:  # 10
+        A = SinVinkel(c, a, C)
+        B = One80Vinkel(A, C)
+        b = SinSide(a, A, B)
 
-            elif havec and havea and haveB:
-                b = CosRelSide(B, a, c)
-                A = SinRelVinkel(b, a, B)
-                C = Sum180(A, B)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif b == 0 and c == 0 and C == 0:  # 11 (Start 2. kolonne)
+        C = One80Vinkel(A, B)
+        b = SinSide(a, A, B)
+        c = SinSide(a, A, C)
 
-            elif havec and havea and haveC:
-                A = SinRelVinkel(c, a, C)
-                B = Sum180(A, C)
-                b = SinRelSide(A, B, a)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and c == 0 and C == 0:  # 12
+        a = SinSide(b, B, A)
+        C = One80Vinkel(A, B)
+        c = SinSide(a, A, C)
 
-            elif havea and haveA and haveB:
-                b = SinRelSide(A, B, a)
-                C = Sum180(A, B)
-                c = SinRelSide(B, C, b)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and b == 0 and C == 0:  # 13
+        C = One80Vinkel(A, B)
+        a = SinSide(c, C, A)
+        b = SinSide(c, C, B)
 
-            elif havea and haveA and haveC:
-                c = SinRelSide(A, C, a)
-                B = Sum180()
-                b = SinRelSide(C, B, c)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif b == 0 and c == 0 and A == 0:  # 14
+        A = One80Vinkel(B, C)
+        b = SinSide(a, A, B)
+        c = SinSide(a, A, C)
 
-            elif havea and haveC and haveB:
-                A = Sum180(B, C)
-                c = SinRelSide(A, C, a)
-                b = SinRelSide(A, B, a)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and c == 0 and A == 0:  # 15
+        A = One80Vinkel(B, C)
+        a = SinSide(b, B, A)
+        c = SinSide(b, B, C)
 
-            elif haveb and haveA and haveB:
-                a = SinRelSide(B, A, b)
-                C = Sum180(A, B)
-                c = SinRelSide(A, C, a)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and b == 0 and A == 0:  # 16
+        A = One80Vinkel(B, C)
+        a = SinSide(c, C, A)
+        b = SinSide(c, C, B)
 
-            elif haveb and haveA and haveC:
-                B = Sum180(A, C)
-                a = SinRelSide(B, A, b)
-                c = SinRelSide(A, C, a )
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif b == 0 and c == 0 and B == 0:  # 17
+        B = One80Vinkel(A, C)
+        b = SinSide(a, A, B)
+        c = SinSide(a, A, C)
 
-            elif haveb and haveC and haveB:
-                c = SinRelSide(B, C, b)
-                A = Sum180(B, C)
-                a = SinRelSide(B, A, b)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and c == 0 and B == 0:  # 18
+        B = One80Vinkel(A, C)
+        a = SinSide(b, B, A)
+        c = SinSide(a, A, C)
 
-            elif havec and haveA and haveB:
-                C = Sum180(A, B)
-                a = SinRelSide(C, A, c)
-                b = SinRelSide(C, B, c)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and b == 0 and B == 0:  # 19
+        B = One80Vinkel(A, C)
+        a = SinSide(c, C, A)
+        b = SinSide(c, C, B)
 
-            elif havec and haveA and haveC:
-                a = SinRelSide(C, A, c)
-                B = Sum180(A, C)
-                b = SinRelSide(A, B, a)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
+    elif a == 0 and b == 0 and c == 0:  # 20
+        print("Fuck af")
 
-            elif havec and haveC and haveB:
-                b = SinRelSide(C, B, c)
-                A = Sum180(B, C)
-                a = SinRelSide(B, A, b)
-                print('A: ' + str(A) + '\n' + 'B: ' + str(B) + '\n' + 'C: ' + str(C) + '\n' + 'a: ' + str(a) + '\n' + 'b: ' +
-                      str(b) + '\n' + 'c: ' + str(c))
-
-            else:
-                print('Det er ikke en trekant')
-        except:
-            print('Fuck dig!')
-
-    main()
-
-CosSinCalc(10, 10, 10)
+    return (A, B, C)
