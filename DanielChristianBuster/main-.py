@@ -83,12 +83,14 @@ while True:
         samletFravær=0
         a = 0
         for rows in data:
-            #print(rows)
             fravær.append(data[a][0])
             uge.append(data[a][1])
             dato.append(str(int(data[a][3])))
             samletFravær=samletFravær+fravær[a]
             a = a + 1
+
+        for i in range(0,len(dato)):
+            dato[i]=str(i+1)+". "+dato[i]
         " ".join(dato)
 
         mistetløn=mistetLøn(a,timeløn)
