@@ -1,0 +1,2 @@
+def dagenEfter():
+    print("...")

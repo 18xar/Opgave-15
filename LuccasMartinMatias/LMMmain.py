@@ -124,7 +124,7 @@ def popup(button):
 
 
             # udregn og vis resultat
-            resultat = LMMFunktioner.FindTrekant(x1, x2, x3, y1, y2, y3)
+            resultat = LMMFunktioner.FindTrekant(x1, y1, x2, y2, x3, y3)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
 
