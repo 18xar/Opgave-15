@@ -22,7 +22,7 @@ TrekantBeregner = [
     [sg.Text("Punkt A"), sg.Text("Punkt B"), sg.Text("Punkt C")],
     [sg.InputText("0,0"), sg.InputText("0,0"), sg.InputText("0,0")],
     [sg.RButton("Udregn")],
-    [sg.Text("resultat:", key="resultat")]
+    [sg.Text("Areal:", key="areal")]
 ]
 
 layout = [
@@ -62,7 +62,7 @@ def popup(button):
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = LMMFunktioner.findAfstand(x1, x2, y1, y2)
+            resultat = LMMFunktioner.findAfstand(x1, y1, x2, y2)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
 
@@ -92,7 +92,7 @@ def popup(button):
             y2 = float(secondValues[1])
 
             # udregn og vis resultat
-            resultat = LMMFunktioner.FindMidtPunkt(x1, x2, y1, y2)
+            resultat = LMMFunktioner.FindMidtPunkt(x1, y1, x2, y2)
             print(resultat)
             window2.FindElement("resultat").Update(str(resultat))
     if button == "Trekant":
