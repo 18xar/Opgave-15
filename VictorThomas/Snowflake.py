@@ -26,9 +26,4 @@ def snowflake (x, y):
             arcade.draw_line(60 - s - 5 + x, 60 - s - 5 + y, s + 5 + x, s + 5 + y, (255, 255, 255), size)
             a = False
 
-arcade.open_window(60, 60, "vindue")  # window
-arcade.set_background_color((255, 255, 255))  # color
 
-snowflake(0, 0)
-arcade.finish_render()
-arcade.run()
