@@ -29,6 +29,12 @@ def TriangeRender(Ax, Ay, Bx, By, Cx, Cy):
     arcade.draw_line(Ax,Ay,Cx,Cy,(60, 180, 180), 4)
     arcade.draw_line(Bx,By,Cx,Cy,(60, 180, 180), 4)
 
+    #tekst med længde
+
+
+
+
+
     arcade.finish_render()
     arcade.run()
 
