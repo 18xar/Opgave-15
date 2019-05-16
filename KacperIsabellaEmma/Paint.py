@@ -1,6 +1,5 @@
 import arcade
 import random
-import PySimpleGUI
 
 
 arcade.open_window(600, 600, "Paint")
