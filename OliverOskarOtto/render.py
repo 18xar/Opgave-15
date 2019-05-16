@@ -37,5 +37,3 @@ def TriangeRender(Ax, Ay, Bx, By, Cx, Cy):
 
     arcade.finish_render()
     arcade.run()
-
-TriangeRender(3,3,4,4,3,6)

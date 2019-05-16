@@ -1,6 +1,6 @@
 import random, arcade
 
-def snowflake (x, y):
+def snowflakev2 (x, y):
 
     a = True
     s = random.randint(5, 20)

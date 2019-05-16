@@ -1,28 +1,25 @@
 #Vores fake main fil 1
 
-import csv,PySimpleGUI as sg
+import csv,PySimpleGUI as sg, math
 
-def graf():
+
+def graf(fravær,uger):
     graph.DrawLine((-100,-100), (100,-100))
     graph.DrawLine((-100,-100), (-100,100))
 
     for x in range(-100, 101, 20):
         graph.DrawLine((x,-103), (x,-97))
-        #if x != 0:
-        #    graph.DrawText( x, (x,-10), color='green')
 
     for y in range(-100, 101, 20):
         graph.DrawLine((-103,y), (-97,y))
-        #if y != 0:
-        #graph.DrawText( y, (-10,y), color='blue')
 
-    event, values = window.Read()
+    for i in range(0,200,20):
+        if y != 0:
+            graph.DrawText( i, (-100,i+10-100), color='blue')
+            graph.DrawText(int(i/20+1), (i + 10 - 100,-100 ), color='blue')
 
-    function = values[0]
-    x = []
-    for i in range(0,100):
-        x.append()
-    graph.DrawLine((-100,0), (100,0))
+    for i in range(0,len(uger)):
+        graph.DrawCircle((i*5-100+20, fravær[i]-100), 2, line_color='red', fill_color='red')
 
 
 def ReadFromFile():
@@ -90,7 +87,7 @@ while True:
         #window = sg.Window('Fravær', grab_anywhere=True)
         window = sg.Window('Fravær', grab_anywhere=True).Layout(layout).Finalize()
         graph = window.FindElement('graph')
-        graf()
+        graf(fravær,uge)
 
 
         event, values = window.Layout(layout).Read()
