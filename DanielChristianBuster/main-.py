@@ -1,6 +1,7 @@
 #Vores fake main fil 1
 
 import csv,PySimpleGUI as sg
+import graf
 
 def ReadFromFile():
     with open('data.csv', newline='') as csvfile:
