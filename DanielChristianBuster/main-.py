@@ -2,6 +2,8 @@
 
 import csv,PySimpleGUI as sg, math
 
+timeløn=200
+
 
 def FraværGennemsnit (uge, fravær):
     #Hej123
@@ -57,10 +59,10 @@ while True:
 
     if (event=="Nyt fravær"):
         window.Close()
-        layout = [[sg.Text('Uge'), sg.InputText()],
-                  [sg.Text('Dato'), sg.InputText()],
+        layout = [[sg.Text('Fravær'), sg.InputText()],
+                  [sg.Text('uge'), sg.InputText()],
                   [sg.Text('Time'), sg.InputText()],
-                  [sg.Text('Fravær'), sg.InputText()],
+                  [sg.Text('Dato'), sg.InputText()],
                   [sg.Button("Upload"),sg.Button("Back")]]
         window = sg.Window('Fravær')
         event, values = window.Layout(layout).Read()
@@ -74,39 +76,34 @@ while True:
         window.Close()
 
     if (event=="Se fravær"):
-
+        window.Close()
         fravær = []
         uge = []
-
+        dato =[]
         samletFravær=0
-
         a = 0
         for rows in data:
-            print(rows)
+            #print(rows)
             fravær.append(data[a][0])
             uge.append(data[a][1])
-
+            dato.append(str(int(data[a][3])))
             samletFravær=samletFravær+fravær[a]
-
             a = a + 1
+        " ".join(dato)
 
-        mistetløn=mistetLøn(a,200)
+        mistetløn=mistetLøn(a,timeløn)
         gennemsnit=FraværGennemsnit(uge,fravær)
-
-
-        window.Close()
 
         layout = [[sg.Text("Nedim er kommet forsent "+str(int(a))+" gange")],
                   [sg.Text("Samlet fravær: "+str(int(samletFravær))+" sekunder")],
                   [sg.Text("Mistet løn: "+str(int(mistetløn))+" kr")],
-                  [sg.Text("Gennemsnitlig fravær per uge: "+str(int(gennemsnit))+" sekunder")]]
-        grafLayout = [[sg.Graph(canvas_size=(400, 400), graph_bottom_left=(-105,-105), graph_top_right=(105,105), background_color='white', key='graph')]]
+                  [sg.Text("Gennemsnitlig fravær per uge: "+str(int(gennemsnit))+" sekunder                                       Dato")]]
+        grafLayout = [[sg.Graph(canvas_size=(400, 400), graph_bottom_left=(-105,-105), graph_top_right=(105,105), background_color='white', key='graph'),sg.Multiline(default_text=dato, size=(35, 3))]]
         backLayout= [[sg.Button("Back")]]
         layout = layout + grafLayout + backLayout
         window = sg.Window('Fravær', grab_anywhere=True).Layout(layout).Finalize()
         graph = window.FindElement('graph')
         graf(fravær,uge)
-
 
         event, values = window.Layout(layout).Read()
 
