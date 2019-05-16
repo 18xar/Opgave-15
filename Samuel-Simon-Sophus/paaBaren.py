@@ -1,5 +1,6 @@
 def paaBaren():
-    svar = input("""Hvad gør du?
+    svar = input("""
+    Hvad gør du?
 
     1) Går hen og spørger om hendes nummer.
     2) Tager hende på røven.
@@ -22,7 +23,7 @@ def paaBaren():
 
     if (svar == "3"):
         print("""
-Hun smiler, tager imod drinken og i begynder at snakke meget godt.
-Lidt tid går og hun kan rigtigt godt lide dig hun tager dig med hjem til hende.
+        Hun smiler, tager imod drinken og i begynder at snakke meget godt.
+        Lidt tid går og hun kan rigtigt godt lide dig hun tager dig med hjem til hende.
 """)
     return svar

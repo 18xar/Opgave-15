@@ -28,7 +28,8 @@ TrekantBeregner = [
     [sg.Text("c:"), sg.Text("0", key="c")],
     [sg.Text("A:"), sg.Text("0", key="A")],
     [sg.Text("B:"), sg.Text("0", key="B")],
-    [sg.Text("C:"), sg.Text("0", key="C")]
+    [sg.Text("C:"), sg.Text("0", key="C")],
+    [sg.RButton("Tegn trekant")]
 ]
 
 layout = [
@@ -109,36 +110,42 @@ def popup(button):
             if event is None or event == "Exit":
                 break
             # Read input
-            for i in range(0, len(values)):
-                tempList = values[i].replace(",", " ")
-                tempList = tempList.split()
-                count = 0
-                for y in tempList:
-                    if count == 0:
-                        values[i] = y
-                    elif count == 1:
-                        secondValues.append(y)
-                    count = 1
+            elif event == "Udregn":
+                for i in range(0, len(values)):
+                    tempList = values[i].replace(",", " ")
+                    tempList = tempList.split()
+                    count = 0
+                    for y in tempList:
+                        if count == 0:
+                            values[i] = y
+                        elif count == 1:
+                            secondValues.append(y)
+                        count = 1
 
-            # lav input om fra string til float
-            x1 = float(values[0])
-            x2 = float(values[1])
-            x3 = float(values[2])
-            y1 = float(secondValues[0])
-            y2 = float(secondValues[1])
-            y3 = float(secondValues[2])
+                # lav input om fra string til float
+                x1 = float(values[0])
+                x2 = float(values[1])
+                x3 = float(values[2])
+                y1 = float(secondValues[0])
+                y2 = float(secondValues[1])
+                y3 = float(secondValues[2])
 
 
-            # udregn og vis resultat
-            resultat = LMMFunktioner.FindTrekant(x1, y1, x2, y2, x3, y3)
-            print(resultat)
-            window2.FindElement("a").Update(str(resultat[0]))
-            window2.FindElement("b").Update(str(resultat[1]))
-            window2.FindElement("c").Update(str(resultat[2]))
-            window2.FindElement("A").Update(str(resultat[3]))
-            window2.FindElement("B").Update(str(resultat[4]))
-            window2.FindElement("C").Update(str(resultat[5]))
-            window2.FindElement("areal").Update(str(resultat[6]))
+                # udregn og vis resultat
+                resultat = LMMFunktioner.FindTrekant(x1, y1, x2, y2, x3, y3)
+                print(resultat)
+                window2.FindElement("a").Update(str(resultat[0]))
+                window2.FindElement("b").Update(str(resultat[1]))
+                window2.FindElement("c").Update(str(resultat[2]))
+                window2.FindElement("A").Update(str(resultat[3]))
+                window2.FindElement("B").Update(str(resultat[4]))
+                window2.FindElement("C").Update(str(resultat[5]))
+                window2.FindElement("areal").Update(str(resultat[6]))
+
+                button, values = window2.Read()
+                if button == "Tegn trekant":
+                    LMMFunktioner.TegnTrekant(x1, y1, x2, y2, x3, y3)
+
 
 
 
