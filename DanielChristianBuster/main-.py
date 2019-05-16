@@ -1,7 +1,29 @@
 #Vores fake main fil 1
 
 import csv,PySimpleGUI as sg
-import graf
+
+def graf():
+    graph.DrawLine((-100,-100), (100,-100))
+    graph.DrawLine((-100,-100), (-100,100))
+
+    for x in range(-100, 101, 20):
+        graph.DrawLine((x,-103), (x,-97))
+        #if x != 0:
+        #    graph.DrawText( x, (x,-10), color='green')
+
+    for y in range(-100, 101, 20):
+        graph.DrawLine((-103,y), (-97,y))
+        #if y != 0:
+        #graph.DrawText( y, (-10,y), color='blue')
+
+    event, values = window.Read()
+
+    function = values[0]
+    x = []
+    for i in range(0,100):
+        x.append()
+    graph.DrawLine((-100,0), (100,0))
+
 
 def ReadFromFile():
     with open('data.csv', newline='') as csvfile:
@@ -59,8 +81,18 @@ while True:
 
 
         window.Close()
+
         layout = [[sg.Text("Alt fravær: "+str(int(samletFravær))+" sekunder")]]
-        window = sg.Window('Fravær')
+
+        grafLayout = [[sg.Graph(canvas_size=(400, 400), graph_bottom_left=(-105,-105), graph_top_right=(105,105), background_color='white', key='graph')]]
+
+        layout = layout + grafLayout
+        #window = sg.Window('Fravær', grab_anywhere=True)
+        window = sg.Window('Fravær', grab_anywhere=True).Layout(layout).Finalize()
+        graph = window.FindElement('graph')
+        graf()
+
+
         event, values = window.Layout(layout).Read()
 
     if (event=="Exit"):
