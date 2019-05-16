@@ -2,6 +2,7 @@
 
 import csv,PySimpleGUI as sg, math
 
+
 def graf(fravær,uger):
     graph.DrawLine((-100,-100), (100,-100))
     graph.DrawLine((-100,-100), (-100,100))
