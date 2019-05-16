@@ -132,7 +132,7 @@ def popup(button):
             # udregn og vis resultat
             resultat = LMMFunktioner.FindTrekant(x1, y1, x2, y2, x3, y3)
             print(resultat)
-            window2.FindElement("areal").Update(str(resultat[resultat.len() - 1]))
+            window2.FindElement("areal").Update(str(resultat[6]))
             window2.FindElement("a").Update(str(resultat[0]))
             window2.FindElement("b").Update(str(resultat[1]))
             window2.FindElement("c").Update(str(resultat[2]))
