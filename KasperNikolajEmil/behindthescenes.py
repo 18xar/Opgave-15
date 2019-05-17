@@ -31,7 +31,7 @@ def findPath():
     return path1, path2
 
 
-def ReturnDict(pathToOpgaveOversigt):
+def returnOpgaver(pathToOpgaveOversigt):
     wb = load_workbook(filename = pathToOpgaveOversigt)
     sheet_ranges = wb["Ark1"]
     kapDict = {}
@@ -101,7 +101,7 @@ def compare(opgaver, egneOpgaver):
     return manglende, x, m
 
 
-def PeopleInPrison(pathToOversigtPlus):
+def peopleInPrison(pathToOversigtPlus):
     wb = load_workbook(filename = pathToOversigtPlus)
     sheet_ranges = wb["Ark1"]
     prisonList = []
@@ -115,9 +115,9 @@ def PeopleInPrison(pathToOversigtPlus):
 
 if __name__ == "__main__":
     path = findPath()
-    opgaveFiles = ReturnDict(path[0])
+    opgaveFiles = returnOpgaver(path[0])
     kap = list(opgaveFiles.keys())
-    listWithPeopleInPrison = PeopleInPrison("C:\\Users\\nikol\\AARHUS TECH\\Mirsad Kadribasic - ZZMatInfoMappe\\Oversigt18RPLUS.xlsx")
+    listWithPeopleInPrison = peopleInPrison("C:\\Users\\nikol\\AARHUS TECH\\Mirsad Kadribasic - ZZMatInfoMappe\\Oversigt18RPLUS.xlsx")
     ownFiles = getOwnFiles(path[1], kap)
     manglende, x, m = compare(opgaveFiles, ownFiles)
     print(m)

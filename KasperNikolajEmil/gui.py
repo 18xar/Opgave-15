@@ -65,13 +65,11 @@ def createPopUp(manglende, tf):
 choice = choice()
 path = findPath()
 if choice == "Egne":
-    opgaveFiles = ReturnDict(path[0])
+    opgaveFiles = returnOpgaver(path[0])
     kap = list(opgaveFiles.keys())
-    listWithPeopleInPrison = PeopleInPrison(path[1] + "/Mirsad Kadribasic - ZZMatInfoMappe/Oversigt18RPLUS.xlsx")
     ownFiles = getOwnFiles(path[1], kap)
     manglende, x, m = compare(opgaveFiles, ownFiles)
     createPopUp(manglende, x)
 elif choice == "Alle":
-    listtemp = PeopleInPrison(path[1] + "/Mirsad Kadribasic - ZZMatInfoMappe/Oversigt18RPLUS.xlsx")
-    # print(listtemp)
-    prisonGUI(listtemp)
+    listWithPeopleInPrison = peopleInPrison(path[1] + "/Mirsad Kadribasic - ZZMatInfoMappe/Oversigt18RPLUS.xlsx")
+    prisonGUI(listWithPeopleInPrison)
