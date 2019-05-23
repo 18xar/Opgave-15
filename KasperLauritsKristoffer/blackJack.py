@@ -172,9 +172,15 @@ def Blackjack():
                                 [sg.Text("", size=(50, 1))],
                                 [sg.Text("Du tabte", size=(50, 1))],
                             ]
-                    window = sg.FlexForm('BlackJack', layout)
-                    buttons, values = window.Read()
-                    window.Close()
+                        else:
+                            window = sg.FlexForm('BlackJack', layout)
+                            buttons, values = window.Read()
+                            window.Close()
+                    else:
+
+                        window = sg.FlexForm('BlackJack', layout)
+                        buttons, values = window.Read()
+                        window.Close()
 
             if HitHold == "2":
                 playerHold = True
@@ -285,3 +291,4 @@ def Blackjack():
         window.Close()
         return 3
 
+Blackjack()
