@@ -91,9 +91,7 @@ def Blackjack():
         PlaceAll(player)
         print("sum: " + str(playerSum))
         print()
-        res = "Dealer: \n", PlaceAll(dealer), "\nsum: " + str(dealerSum), "\n \n Spiller: \n", PlaceAll(player), \
-              "sum: " + str(playerSum), "\n"
-        return res
+        return "Dealer: ", str(PlaceAll(dealer)), "Spiller: ", str(PlaceAll(player))
 
 
 
@@ -164,6 +162,16 @@ def Blackjack():
                         [sg.Text("", size=(50, 1))],
                         [sg.Button("Hit"), sg.Button("Hold")]
                     ]
+                    if playerSum > 21:
+                        if playerEs <= 0:
+                            layout = [
+                                [sg.Text(pin1, size=(50, 1))],
+                                [sg.Text(pin2, size=(50, 1))],
+                                [sg.Text(pin3, size=(50, 1))],
+                                [sg.Text(pin4, size=(50, 1))],
+                                [sg.Text("", size=(50, 1))],
+                                [sg.Text("Du tabte", size=(50, 1))],
+                            ]
                     window = sg.FlexForm('BlackJack', layout)
                     buttons, values = window.Read()
                     window.Close()
@@ -194,7 +202,7 @@ def Blackjack():
             if dealerSum < 17:
                 dealer.append(Draw())
                 dealerSum += dealer[len(dealer) - 1][2]
-                PlaceInformation2()
+                pin1, pin2, pin3, pin4 = PlaceInformation2()
 
             else:
                 if playerSum > dealerSum:
@@ -211,25 +219,69 @@ def Blackjack():
 
     if loose == True:
         print("DU TABTE :(")
-        PlaceInformation2()
+        pin1, pin2, pin3, pin4 = PlaceInformation2()
         print("DU TABTE :(")
+        layout = [
+            [sg.Text(pin1, size=(50, 1))],
+            [sg.Text(pin2, size=(50, 1))],
+            [sg.Text(pin3, size=(50, 1))],
+            [sg.Text(pin4, size=(50, 1))],
+            [sg.Text("", size=(50, 1))],
+            [sg.Text("Du tabte", size=(50, 1))],
+        ]
+        window = sg.FlexForm('BlackJack', layout)
+        buttons, values = window.Read()
+        window.Close()
         return 1
 
     if loose == False:
         print("DU VANDT :)")
-        PlaceInformation2()
+        pin1, pin2, pin3, pin4 = PlaceInformation2()
         print("DU VANDT :)")
+        layout = [
+            [sg.Text(pin1, size=(50, 1))],
+            [sg.Text(pin2, size=(50, 1))],
+            [sg.Text(pin3, size=(50, 1))],
+            [sg.Text(pin4, size=(50, 1))],
+            [sg.Text("", size=(50, 1))],
+            [sg.Text("DU VANDT :)", size=(50, 1))],
+        ]
+        window = sg.FlexForm('BlackJack', layout)
+        buttons, values = window.Read()
+        window.Close()
         return 2
 
     if loose == "draw":
         print("well....")
-        PlaceInformation2()
+        pin1, pin2, pin3, pin4 = PlaceInformation2()
         print("well....")
+        layout = [
+            [sg.Text(pin1, size=(50, 1))],
+            [sg.Text(pin2, size=(50, 1))],
+            [sg.Text(pin3, size=(50, 1))],
+            [sg.Text(pin4, size=(50, 1))],
+            [sg.Text("", size=(50, 1))],
+            [sg.Text("well....", size=(50, 1))],
+        ]
+        window = sg.FlexForm('BlackJack', layout)
+        buttons, values = window.Read()
+        window.Close()
         return 0
 
     if loose == "Blackjack":
         print("BLACKJACK!! :O")
-        PlaceInformation2()
+        pin1, pin2, pin3, pin4 = PlaceInformation2()
         print("BLACKJACK!! :O")
+        layout = [
+            [sg.Text(pin1, size=(50, 1))],
+            [sg.Text(pin2, size=(50, 1))],
+            [sg.Text(pin3, size=(50, 1))],
+            [sg.Text(pin4, size=(50, 1))],
+            [sg.Text("", size=(50, 1))],
+            [sg.Text("BLACKJACK!! :O", size=(50, 1))],
+        ]
+        window = sg.FlexForm('BlackJack', layout)
+        buttons, values = window.Read()
+        window.Close()
         return 3
 
