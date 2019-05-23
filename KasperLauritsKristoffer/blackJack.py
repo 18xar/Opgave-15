@@ -291,4 +291,3 @@ def Blackjack():
         window.Close()
         return 3
 
-Blackjack()
