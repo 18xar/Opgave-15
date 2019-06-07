@@ -25,7 +25,7 @@ def TriangeRender(Ax, Ay, Bx, By, Cx, Cy):
     Cy = Cy + 400 + Cy * 30
 
 
-    arcade.open_window(width, height, "Triangle Co0rdinate Drawer")
+    arcade.open_window(width, height, "Triangle Coordinate Drawer")
     arcade.set_background_color((255, 255, 255))
 
     #Draw axes
