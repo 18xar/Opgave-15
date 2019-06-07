@@ -1,6 +1,6 @@
 import arcade
 
-def TriangeRender(Ax, Ay, Bx, By, Cx, Cy):
+def TriangleRender(Ax, Ay, Bx, By, Cx, Cy):
     import pointsDis
     import cosSinCalc
     AB, AC, BC = (pointsDis.PointsDis(Ax, Ay, Bx, By, Cx, Cy))
