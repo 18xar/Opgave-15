@@ -44,7 +44,7 @@ def rulette(bet, position):
 
     #laver et roll:
 
-    roll = board[random.randint(0,len(board))-1]
+    roll = board[random.randint(0, len(board))-1]
 
     #Hvad man kan bette på:
 
@@ -52,22 +52,21 @@ def rulette(bet, position):
         if 1 == roll[1]:
             profit = bet * 2
 
-    if position == "Black":
+    elif position == "Black":
         if 2 == roll[1]:
             profit = bet * 2
 
-    if position == "1-19":
+    elif position == "1-19":
         if roll[0] > 0 and roll[0] < 20:
             profit = bet * 2
 
-    if position == "20-36":
+    elif position == "20-36":
         if roll[0] > 20 and roll[0] < 37:
             profit = bet * 2
 
-    if position >= -1 and position <= 36:
-        if position == roll[0]:
+    elif int(position) >= -1 and int(position) <= 36:
+        if int(position) == roll[0]:
             profit = bet * 36
-
 
     return profit, roll
 
