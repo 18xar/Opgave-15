@@ -18,28 +18,25 @@ def rulette(bet, position):
     for red in range(2,12,2):
         board[red].append(1)
 
-    for black in range(3,13,2):
+    for black in range(3, 13, 2):
         board[black].append(2)
 
-
-    for black in range(12,20,2):
+    for black in range(12, 20, 2):
         board[black].append(2)
 
     for red in range(13,20,2):
         board[red].append(1)
 
-
-    for black in range(21,31,2):
+    for black in range(21, 31, 2):
         board[black].append(2)
 
-    for red in range(20,30,2):
+    for red in range(20, 30, 2):
         board[red].append(1)
 
-
-    for black in range(30,38,2):
+    for black in range(30, 38, 2):
         board[black].append(2)
 
-    for red in range(31,38,2):
+    for red in range(31, 38, 2):
         board[red].append(1)
 
     #laver et roll:
